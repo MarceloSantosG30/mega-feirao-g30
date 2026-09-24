@@ -13,8 +13,8 @@
 const CONFIG = {
   evento: {
     edicao:     '3º Mega Feirão G30',
-    datasLongo: '24, 25 e 26 de outubro',
-    datasCurto: '24, 25 e 26<br>de outubro',
+    datasLongo: '22, 23 e 24 de outubro',
+    datasCurto: '22, 23 e 24<br>de outubro',
     ano:        2026,
     parceiro:   'Santander Financiamentos',   // provável: citado nos criativos 03 e 05
     lojas:      200,
@@ -31,34 +31,34 @@ const CONFIG = {
     'Presença de toda a equipa nos treinamentos.',
     'Copiloto Gideão ativo durante todo o feirão.',
     'Camisa e boné Mega Feirão G30 para os vendedores.',
-    'G30 Pay ativada e pronta para parcelar a entrada.',
+    'G30 Pay ativada, se a loja quiser parcelar a entrada.',
     'Os seis criativos gravados e publicados.'
   ],
 
   cronograma: [
-    { hora: '18:30h',     data: '07/Out',      titulo: 'Planejamento (Guga)',                 desc: 'Definição de metas, alinhamento de processos e kick-off oficial da operação.' },
-    { hora: '11:00h',     data: '09/Out',      titulo: 'Criação de conteúdos',                desc: 'Com Carol e Daniel. Produzir as provas sociais e os vídeos seguindo os seis roteiros.' },
-    { hora: '10:00h',     data: '11/Out',      titulo: 'Tráfego e captação de leads',         desc: 'Com Wirley. Lançamento das campanhas no Meta Ads. Foco em encher a lista.' },
-    { hora: '10:00h',     data: '14/Out',      titulo: 'Gestão de equipe e preparação',       desc: 'Com Guga. Alinhamento e preparação dedicada aos gestores.' },
-    { hora: '08:00h',     data: '16/Out',      titulo: 'Sessão extra de análise de tráfego',  desc: 'Otimização geral: tudo sobre tráfego pago para o lançamento.' },
-    { hora: '08:00h',     data: '17/Out',      titulo: 'Análise de criativos e campanhas',    desc: 'Otimização fina: manter o que performa e ajustar rotas no tráfego.' },
-    { hora: '19:30h',     data: '21/Out',      titulo: 'Treinamento de lives',                desc: 'Capacitação para o evento. Como conduzir a audiência e converter.' },
-    { hora: 'Foco total', data: '22 e 23/Out', titulo: 'Sala de guerra',                      desc: 'Operação máxima antes da Live. Estratégia e alinhamento final.' },
-    { hora: '19:30h',     data: '24/Out',      titulo: 'Live oficial G30',                    desc: 'A revelação das ofertas para a base aquecida. Abertura do Feirão.' }
+    { hora: '18:30h',     data: '05/Out',      titulo: 'Planejamento (Guga)',                 desc: 'Definição de metas, alinhamento de processos e kick-off oficial da operação.' },
+    { hora: '11:00h',     data: '07/Out',      titulo: 'Criação de conteúdos',                desc: 'Com Carol e Daniel. Produzir as provas sociais e os vídeos seguindo os seis roteiros.' },
+    { hora: '10:00h',     data: '09/Out',      titulo: 'Tráfego e captação de leads',         desc: 'Com Wirley. Lançamento das campanhas no Meta Ads. Foco em encher a lista.' },
+    { hora: '10:00h',     data: '12/Out',      titulo: 'Gestão de equipe e preparação',       desc: 'Com Guga. Alinhamento e preparação dedicada aos gestores.' },
+    { hora: '08:00h',     data: '14/Out',      titulo: 'Sessão extra de análise de tráfego',  desc: 'Otimização geral: tudo sobre tráfego pago para o lançamento.' },
+    { hora: '08:00h',     data: '15/Out',      titulo: 'Análise de criativos e campanhas',    desc: 'Otimização fina: manter o que performa e ajustar rotas no tráfego.' },
+    { hora: '19:30h',     data: '19/Out',      titulo: 'Treinamento de lives',                desc: 'Capacitação para o evento. Como conduzir a audiência e converter.' },
+    { hora: 'Foco total', data: '20 e 21/Out', titulo: 'Sala de guerra',                      desc: 'Operação máxima antes da Live. Estratégia e alinhamento final.' },
+    { hora: '19:30h',     data: '22/Out',      titulo: 'Live oficial G30',                    desc: 'A revelação das ofertas para a base aquecida. Abertura do Feirão.' }
   ],
 
   dias: [
-    { dia: '24', label: 'Quinta-feira', nota: 'Abertura' },
-    { dia: '25', label: 'Sexta-feira',  nota: 'Operação máxima' },
-    { dia: '26', label: 'Sábado',       nota: 'Fechamento' }
+    { dia: '22', label: 'Quinta-feira', nota: 'Abertura' },
+    { dia: '23', label: 'Sexta-feira',  nota: 'Operação máxima' },
+    { dia: '24', label: 'Sábado',       nota: 'Fechamento' }
   ],
 
   /* a lógica das 4 fases é real (hub do 2º Feirão); só os períodos são provisórios */
   fases: [
-    { periodo: '11 a 19/Out',    fase: 'Captação',   cor: 'blue',   acao: 'Autoridade e pré-aprovação', detalhe: 'Campanhas focadas em pré-aprovação com o Santander. Gerar listas mostrando que quem se antecipa garante as melhores taxas.' },
-    { periodo: '20 a 23/Out',    fase: 'Agenda VIP', cor: 'purple', acao: 'Antecipação e escassez',     detalhe: 'Remarketing agressivo. Mostrar bastidores e veículos sendo preparados. Convidar forte para a lista VIP da Live.' },
-    { periodo: '24/Out, 19h30',  fase: 'Abertura',   cor: 'brand',  acao: 'Live de ofertas',            detalhe: 'Aviso massivo para a base de leads. Revelação das condições Santander e G30 Pay. Fluxo total para o atendimento por IA.' },
-    { periodo: '25 e 26/Out',    fase: 'Fechamento', cor: 'red',    acao: 'Urgência real',              detalhe: 'Pausar campanhas frias. Orçamento em remarketing com veículos sendo entregues. Gatilho: últimas unidades.' }
+    { periodo: '09 a 17/Out',    fase: 'Captação',   cor: 'blue',   acao: 'Autoridade e pré-aprovação', detalhe: 'Campanhas focadas em pré-aprovação com o Santander. Gerar listas mostrando que quem se antecipa garante as melhores taxas.' },
+    { periodo: '18 a 21/Out',    fase: 'Agenda VIP', cor: 'purple', acao: 'Antecipação e escassez',     detalhe: 'Remarketing agressivo. Mostrar bastidores e veículos sendo preparados. Convidar forte para a lista VIP da Live.' },
+    { periodo: '22/Out, 19h30',  fase: 'Abertura',   cor: 'brand',  acao: 'Live de ofertas',            detalhe: 'Aviso massivo para a base de leads. Revelação das condições Santander e G30 Pay. Fluxo total para o atendimento por IA.' },
+    { periodo: '23 e 24/Out',    fase: 'Fechamento', cor: 'red',    acao: 'Urgência real',              detalhe: 'Pausar campanhas frias. Orçamento em remarketing com veículos sendo entregues. Gatilho: últimas unidades.' }
   ]
 };
 
@@ -197,9 +197,46 @@ const MENSAGENS = [
   { n: 10, titulo: 'Final definitivo',      texto: '[nome do cliente], vou encerrar seu atendimento por aqui pra não te incomodar. Se fizer sentido retomar, me chama que será uma honra te ajudar na realização do sonho da compra do seu (carro/moto).' }
 ];
 
+/* ---------------------------------------------------------------------
+   Cases das edições passadas — vídeos enviados pelas lojas participantes.
+   Já vinham em H.264; foram só remuxados com faststart.
+   --------------------------------------------------------------------- */
+const CASES = [
+  { slug: 'case-01-depoimento-lojista', titulo: 'O depoimento de quem viveu',
+    formato: 'vertical', duracao: '1min48',
+    resumo: 'Lojista conta, sem roteiro e sem produção, como foi a operação durante os três dias.',
+    olhar: 'Repare que o valor está na sinceridade, não na edição. Um celular e uma camiseta do Feirão bastam.' },
+
+  { slug: 'case-02-atendimento-congestionado', titulo: 'Atendimento congestionado',
+    formato: 'vertical', duracao: '57s',
+    resumo: 'Bastidores da sala de atendimento no pico, com o painel de leads aberto na tela.',
+    olhar: 'Mostrar o volume real de leads é prova social mais forte do que qualquer promessa. Prepare a equipe para o congestionamento.' },
+
+  { slug: 'case-03-patio-cheio', titulo: 'O pátio cheio',
+    formato: 'vertical', duracao: '2min07',
+    resumo: 'Caminhada pelo pátio lotado de clientes, no meio do movimento.',
+    olhar: 'Movimento de gente vende mais que foto de veículo parado. Grave caminhando, sem cortes, no horário de pico.' },
+
+  { slug: 'case-04-meta-batida', titulo: 'Meta e super meta batidas',
+    formato: 'vertical', duracao: '18s',
+    resumo: 'A comemoração da equipe na porta da loja quando o resultado fecha.',
+    olhar: 'Curto, noturno e com a equipe junta. É o conteúdo de encerramento que alimenta a próxima edição.' },
+
+  { slug: 'case-05-entrega', titulo: 'A entrega',
+    formato: 'horizontal', duracao: '1min21',
+    resumo: 'Cliente recebendo o veículo com laço, dentro da loja.',
+    olhar: 'A entrega é o melhor gatilho de remarketing na reta final. Combine a gravação com o cliente antes.' },
+
+  { slug: 'case-06-compilado-lojas', titulo: 'Compilado das lojas',
+    formato: 'vertical', duracao: '2min24',
+    resumo: 'Várias lojas do Feirão passado, entre carros, motos, reuniões e ações de pátio.',
+    olhar: 'Serve como banco de ideias: cada trecho é um formato que você pode reproduzir na sua loja.' }
+];
+
 const ABAS = [
   { id: 'main',       nome: 'O Feirão' },
   { id: 'criativos',  nome: 'Criativos' },
+  { id: 'cases',      nome: 'Cases' },
   { id: 'calendario', nome: 'Calendário' },
   { id: 'trafego',    nome: 'Tráfego' },
   { id: 'execucao',   nome: 'Execução' },

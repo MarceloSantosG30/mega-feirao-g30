@@ -47,7 +47,7 @@
 
     <section class="hero wrap">
       <h1 class="display hero__title">Prepare-se para bater<br>todos os recordes de<br><span class="accent">vendas</span></h1>
-      <p class="lead hero__lead">O hub oficial do <span class="mock-inline strong">3º Mega Feirão G30</span>. Carros e motos: as estratégias validadas para gerar tráfego massivo e explodir as vendas da sua loja.</p>
+      <p class="lead hero__lead">Sua loja já está inscrita no <span class="mock-inline strong">3º Mega Feirão G30</span>. Aqui está tudo para preparar a operação: os roteiros, o cronograma, o tráfego e os scripts de venda.</p>
 
       <div class="hero__meta">
         <span class="chip chip--brand mock-inline" id="heroDates">24, 25 e 26 de outubro</span>
@@ -56,8 +56,8 @@
       </div>
 
       <div class="row row--center mt-6">
-        <a href="#pacote" class="btn btn--primary btn--lg">Garantir a minha vaga</a>
-        <button class="btn btn--ghost btn--lg" onclick="switchTab('criativos')">Ver o plano de criativos</button>
+        <button class="btn btn--primary btn--lg" onclick="switchTab('criativos')">Ver o plano de criativos</button>
+        <button class="btn btn--ghost btn--lg" onclick="switchTab('cases')">Inspirar-se nos cases</button>
       </div>
 
       <div class="hero__stack">
@@ -118,50 +118,6 @@
         <p class="lead">Tudo o que precisa estar pronto na sua loja antes da Live de abertura.</p>
       </div>
       <div class="card card--pad mock-box" id="checklist"></div>
-    </section>
-
-    <!-- oferta -->
-    <section class="section wrap wrap--mid" id="pacote">
-      <div class="panel mock-box">
-        <div class="section__head">
-          <p class="eyebrow eyebrow--brand">A oferta</p>
-          <h2 class="h1" id="offerTitle">3º Mega Feirão G30<br><span class="accent">com Banco Santander</span></h2>
-          <p class="lead" id="offerDates">Nos dias 24, 25 e 26 de outubro vai rolar o evento, e a sua participação sai de graça.</p>
-        </div>
-
-        <div class="card card--inset mock">
-          <h3 class="h3">Como garantir a vaga grátis</h3>
-          <p class="sm mt-3">O custo do Feirão é de <span class="strong">R$ 1.800</span>, mas o Santander e a G30 pagam por você. A única condição: usar a maquininha G30 Pay.</p>
-          <p class="sm mt-3"><span class="strong">Mensalidade zero.</span> Os R$ 157 da mensalidade ficam 100% zerados. A isenção costuma exigir faturamento mínimo de R$ 30 mil — no Feirão <span class="strong">não há valor mínimo</span>.</p>
-        </div>
-
-        <h3 class="h3 mt-6 mb-4">O que você leva no combo</h3>
-        <div class="grid grid--2">
-          <div class="card card--hover">
-            <h4 class="h4">Planejamento</h4>
-            <p class="sm mt-3">Estruturado passo a passo para o Feirão.</p>
-          </div>
-          <div class="card card--hover">
-            <h4 class="h4">Pacote de ferramentas de I.A.</h4>
-            <p class="sm mt-3">Leadway no tráfego pago e Gideão no seu WhatsApp, analisando anúncio, trazendo estratégia e avaliando leads.</p>
-          </div>
-          <div class="card card--hover mock">
-            <h4 class="h4">Kit Feirão oficial</h4>
-            <p class="sm mt-3">Camiseta e boné exclusivos.</p>
-          </div>
-          <div class="card card--hover mock">
-            <h4 class="h4">Maquininha G30 Pay</h4>
-            <p class="sm mt-3">Parcele a entrada do seu cliente em até 24x.</p>
-          </div>
-        </div>
-
-        <p class="lead center mt-6">O Santander financia, a G30 Pay parcela a entrada<br>e <span class="strong">você vende como nunca</span>.</p>
-
-        <div class="row row--center mt-5">
-          <a id="ctaInscricao" href="#" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Garantir a minha vaga</a>
-        </div>
-        <p class="xs center mt-3">Abre o formulário de inscrição numa nova aba.</p>
-      </div>
     </section>
 
     <!-- Gideão -->
@@ -242,7 +198,29 @@
   </div>
 
   <!-- ================================================================ -->
-  <!-- ABA 3 — CALENDÁRIO                                               -->
+  <!-- ABA 3 — CASES                                                    -->
+  <!-- ================================================================ -->
+  <div id="tab-cases" class="tab">
+    <section class="hero wrap">
+      <p class="eyebrow eyebrow--brand mb-4">Edições passadas</p>
+      <h1 class="display hero__title">Inspire-se nos <span class="accent">cases</span></h1>
+      <p class="lead hero__lead">O que as lojas gravaram nos Feirões anteriores — sem produção, no meio da operação. Veja o que funcionou e adapte para a sua.</p>
+    </section>
+
+    <section class="section wrap">
+      <div class="grid grid--3" id="listaCases"></div>
+    </section>
+
+    <section class="section wrap wrap--narrow">
+      <div class="panel center">
+        <p class="eyebrow eyebrow--brand mb-4">O que todos têm em comum</p>
+        <p class="h2">Nenhum foi produzido.<br><span class="accent">Todos foram gravados no meio do movimento.</span></p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- ABA 4 — CALENDÁRIO                                               -->
   <!-- ================================================================ -->
   <div id="tab-calendario" class="tab">
     <section class="hero wrap">
@@ -265,7 +243,7 @@
   </div>
 
   <!-- ================================================================ -->
-  <!-- ABA 4 — TRÁFEGO                                                  -->
+  <!-- ABA 5 — TRÁFEGO                                                  -->
   <!-- ================================================================ -->
   <div id="tab-trafego" class="tab">
     <section class="hero wrap">
@@ -290,7 +268,7 @@
   </div>
 
   <!-- ================================================================ -->
-  <!-- ABA 5 — EXECUÇÃO                                                 -->
+  <!-- ABA 6 — EXECUÇÃO                                                 -->
   <!-- ================================================================ -->
   <div id="tab-execucao" class="tab">
     <section class="hero wrap">
@@ -377,7 +355,7 @@
   </div>
 
   <!-- ================================================================ -->
-  <!-- ABA 6 — PRÉ-VENDAS                                               -->
+  <!-- ABA 7 — PRÉ-VENDAS                                               -->
   <!-- ================================================================ -->
   <div id="tab-presales" class="tab">
     <section class="hero wrap">

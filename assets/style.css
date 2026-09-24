@@ -433,6 +433,20 @@ body.mock-off .mock-box::after { display: none; }
   .creative__main { padding: var(--sp-5); }
 }
 
+/* ===================== cases ===================== */
+.case { display: flex; flex-direction: column; }
+.case__video { width: 100%; background: #000; object-fit: cover; }
+.case__video--vertical   { aspect-ratio: 9 / 16; }
+.case__video--horizontal { aspect-ratio: 16 / 9; }
+.case__body { padding: var(--sp-5); display: flex; flex-direction: column; flex: 1; }
+.case__top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-3); }
+.case__top .h3 { flex: 1; }
+.case__label { margin-top: var(--sp-5); margin-bottom: var(--sp-2); }
+
+@media (max-width: 620px) {
+  .case__body { padding: var(--sp-4); }
+}
+
 /* ===================== cronograma ===================== */
 .slot { display: flex; align-items: center; gap: var(--sp-5); }
 .slot__when { flex-shrink: 0; width: 92px; }

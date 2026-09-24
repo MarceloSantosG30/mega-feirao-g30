@@ -4,7 +4,11 @@ Hub interno do Mega Feirão G30: plano de criativos com os vídeos de referênci
 cronograma, tráfego pago, execução de gravação e scripts de pré-venda.
 
 Sucessor do [Megafeirao2.0](https://g30ia.github.io/Megafeirao2.0/), que era do
-2º Feirão (carros, 25–27/jun). Esta edição cobre **carros e motos**.
+2º Feirão (carros, 25–27/jun). Esta edição cobre **carros e motos**, acontece de
+**22 a 24 de outubro** e é dirigida a lojas **já inscritas** — por isso a página
+não tem seção de venda nem formulário.
+
+Sete abas: O Feirão, Criativos, Cases, Calendário, Tráfego, Execução e Pré-vendas.
 
 > ⚠️ **Versão de trabalho.** Datas, metas, links e cronograma são dados de
 > exemplo, marcados na página com um selo laranja. Veja
@@ -36,9 +40,12 @@ assets/
   g30-logo.png               logo oficial da plataforma (frontend/web)
   infografico-plano-criativos.jpg
   plano-criativos-mega-feirao-g30.pdf
-videos/                      11 criativos em H.264, 720x1280, faststart (57 MB)
+videos/                      17 vídeos em H.264 com faststart (128 MB)
+  criativo-* / loja-*        os 6 criativos, nas versões de moto e de carro
+  case-*                     6 cases das edições passadas
   posters/                   capa de cada vídeo
-materiais-apoio/             originais em HEVC — fora do git (.gitignore)
+materiais-apoio/                 originais em HEVC dos criativos — fora do git
+materiais-mega-feirao-passado/   originais dos cases — fora do git
 ```
 
 Sem framework e sem build. A única dependência externa é a fonte Inter, do Google
@@ -73,6 +80,10 @@ Firefox nem Edge** — só no Safari. Foram transcodados para H.264 + AAC:
 
 Uma duplicata exata (`IMG_3502 (1).MP4`) foi descartada.
 
+Os **cases das edições passadas** já vinham em H.264 (saíram do WhatsApp, a
+~1 Mbps). Foram só remuxados com `faststart`, sem recomprimir — recomprimir uma
+fonte já comprimida degradaria à toa. Também aí havia uma duplicata exata.
+
 São **dois conjuntos paralelos**: o mesmo plano de 6 criativos executado por duas
 lojas — **Suzuki Moto Marques** (motos) e **Goiânia Veículos** (carros). A aba
 *Criativos* mostra os dois lado a lado, com um alternador por card.
@@ -97,6 +108,7 @@ ffmpeg -ss 1 -i saida.mp4 -frames:v 1 -vf "scale=480:-1" -q:v 5 posters/saida.jp
 | --- | --- |
 | Datas, meta, links, cronograma, fases, checklist | `CONFIG`, em `assets/dados.js` |
 | Roteiros dos criativos e qual vídeo cada um usa | `CRIATIVOS`, em `assets/dados.js` |
+| Os cases das edições passadas | `CASES`, em `assets/dados.js` |
 | Prompts do Gideão, objeções, mensagens MAPA | `GIDEAO`, `OBJECOES`, `MENSAGENS` |
 | Nomes e ordem das abas | `ABAS`, em `assets/dados.js` |
 | Cor, espaçamento, tipografia | tokens no `:root` de `assets/style.css` |

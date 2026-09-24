@@ -131,6 +131,24 @@ function setSeg(n, seg, btn) {
   btn.classList.add('is-on');
 }
 
+/* ============================ cases ============================ */
+function renderCases() {
+  el('listaCases').innerHTML = CASES.map((c) => `
+    <article class="card card--flush card--hover case">
+      <video class="case__video case__video--${esc(c.formato)}" controls playsinline preload="none"
+             poster="videos/posters/${esc(c.slug)}.jpg" src="videos/${esc(c.slug)}.mp4"></video>
+      <div class="case__body">
+        <div class="case__top">
+          <h3 class="h3">${esc(c.titulo)}</h3>
+          <span class="chip">${esc(c.duracao)}</span>
+        </div>
+        <p class="sm mt-3">${esc(c.resumo)}</p>
+        <p class="eyebrow eyebrow--brand case__label">O que observar</p>
+        <p class="sm">${esc(c.olhar)}</p>
+      </div>
+    </article>`).join('');
+}
+
 /* ============================ calendário ============================ */
 function renderCronograma() {
   el('cronograma').innerHTML = CONFIG.cronograma.map((e) => `
@@ -269,13 +287,12 @@ document.addEventListener('DOMContentLoaded', () => {
   el('heroPartner').textContent = 'com ' + CONFIG.evento.parceiro;
   el('factDates').innerHTML    = CONFIG.evento.datasCurto;
   el('factStores').innerHTML   = 'Exclusivo para<br>' + CONFIG.evento.lojas + ' lojas G30';
-  el('offerDates').textContent = 'Nos dias ' + CONFIG.evento.datasLongo + ' vai rolar o evento, e a sua participação sai de graça.';
-  el('ctaInscricao').href      = CONFIG.links.inscricao;
   el('ctaSuporte').href        = CONFIG.links.suporte;
 
   renderNav();
   renderChecklist();
   renderCriativos();
+  renderCases();
   renderCronograma();
   renderFases();
   renderRetencao();
