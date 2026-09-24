@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mega Feirão G30 | Hub das Lojas</title>
+<meta name="description" content="Hub oficial do Mega Feirão G30: plano de criativos, cronograma, tráfego pago e scripts de pré-venda para as lojas participantes.">
+<link rel="icon" href="assets/g30-logo.png">
+<meta property="og:title" content="Mega Feirão G30 | Hub das Lojas">
+<meta property="og:description" content="Plano de criativos, cronograma, tráfego pago e scripts de pré-venda.">
+<meta property="og:image" content="assets/infografico-plano-criativos.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ============================ aviso de conteúdo provisório ============================ -->
+<div class="notice">
+  <span>Versão de trabalho — datas, metas, links e cronograma são dados de exemplo. Veja <code>DADOS-PENDENTES.md</code>.</span>
+  <button onclick="toggleMockMarks()" id="mockToggle">ocultar marcas</button>
+</div>
+
+<!-- ============================ cabeçalho ============================ -->
+<header class="header">
+  <div class="header__bar">
+    <a class="brand" href="#main" onclick="switchTab('main')">
+      <img class="brand__logo" src="assets/g30-logo.png" alt="G30">
+      <span class="brand__rule"></span>
+      <span class="brand__name">Mega Feirão <span>G30</span></span>
+    </a>
+    <nav class="nav no-scrollbar" id="nav"></nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================================================================ -->
+  <!-- ABA 1 — O FEIRÃO                                                 -->
+  <!-- ================================================================ -->
+  <div id="tab-main" class="tab is-on">
+
+    <section class="hero wrap">
+      <h1 class="display hero__title">Prepare-se para bater<br>todos os recordes de<br><span class="accent">vendas</span></h1>
+      <p class="lead hero__lead">O hub oficial do <span class="mock-inline strong">3º Mega Feirão G30</span>. Carros e motos: as estratégias validadas para gerar tráfego massivo e explodir as vendas da sua loja.</p>
+
+      <div class="hero__meta">
+        <span class="chip chip--brand mock-inline" id="heroDates">24, 25 e 26 de outubro</span>
+        <span class="chip mock-inline" id="heroStores">200 lojas</span>
+        <span class="chip mock-inline" id="heroPartner">com Santander Financiamentos</span>
+      </div>
+
+      <div class="row row--center mt-6">
+        <a href="#pacote" class="btn btn--primary btn--lg">Garantir a minha vaga</a>
+        <button class="btn btn--ghost btn--lg" onclick="switchTab('criativos')">Ver o plano de criativos</button>
+      </div>
+
+      <div class="hero__stack">
+        <span>CarVoice</span><span>Leadway</span><span>Meta Ads</span><span>Gideão</span><span>G30 Pay</span>
+      </div>
+    </section>
+
+    <!-- painel de metas -->
+    <section class="section wrap wrap--narrow">
+      <div class="panel kpi">
+        <p class="eyebrow eyebrow--brand">Painel de resultados</p>
+        <h2 class="h2 mt-3">A sua meta é vender veículos</h2>
+        <p class="sm mt-3">Registe aqui as vitórias da loja durante o Feirão.</p>
+
+        <div class="kpi__figures">
+          <span class="kpi__now num" id="salesNow">0</span>
+          <span class="kpi__sep">/</span>
+          <span class="kpi__goal num mock-inline" id="salesGoal">17</span>
+        </div>
+        <p class="eyebrow">veículos vendidos</p>
+
+        <div class="kpi__track"><div class="kpi__fill" id="salesFill" style="width:0%"></div></div>
+
+        <div class="kpi__actions">
+          <button class="btn btn--primary" onclick="addSale()">Registar venda</button>
+          <button class="btn btn--ghost" onclick="resetSales()">Zerar</button>
+        </div>
+        <p class="kpi__done" id="salesDone" hidden>Meta máxima atingida. Parabéns!</p>
+      </div>
+    </section>
+
+    <!-- fatos -->
+    <section class="section wrap">
+      <div class="grid grid--3">
+        <div class="card fact mock-box">
+          <p class="fact__icon">🎯</p>
+          <p class="eyebrow">O desafio</p>
+          <p class="fact__value">Vender de 20% a 30%<br>do estoque em 3 dias</p>
+        </div>
+        <div class="card fact mock-box">
+          <p class="fact__icon">📅</p>
+          <p class="eyebrow">Quando</p>
+          <p class="fact__value" id="factDates">24, 25 e 26<br>de outubro</p>
+        </div>
+        <div class="card fact mock-box">
+          <p class="fact__icon">🏆</p>
+          <p class="eyebrow">Pra quem</p>
+          <p class="fact__value" id="factStores">Exclusivo para<br>200 lojas G30</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- checklist -->
+    <section class="section wrap wrap--narrow">
+      <div class="section__head">
+        <p class="eyebrow eyebrow--brand">Antes de começar</p>
+        <h2 class="h1">Checklist de preparação</h2>
+        <p class="lead">Tudo o que precisa estar pronto na sua loja antes da Live de abertura.</p>
+      </div>
+      <div class="card card--pad mock-box" id="checklist"></div>
+    </section>
+
+    <!-- oferta -->
+    <section class="section wrap wrap--mid" id="pacote">
+      <div class="panel mock-box">
+        <div class="section__head">
+          <p class="eyebrow eyebrow--brand">A oferta</p>
+          <h2 class="h1" id="offerTitle">3º Mega Feirão G30<br><span class="accent">com Banco Santander</span></h2>
+          <p class="lead" id="offerDates">Nos dias 24, 25 e 26 de outubro vai rolar o evento, e a sua participação sai de graça.</p>
+        </div>
+
+        <div class="card card--inset mock">
+          <h3 class="h3">Como garantir a vaga grátis</h3>
+          <p class="sm mt-3">O custo do Feirão é de <span class="strong">R$ 1.800</span>, mas o Santander e a G30 pagam por você. A única condição: usar a maquininha G30 Pay.</p>
+          <p class="sm mt-3"><span class="strong">Mensalidade zero.</span> Os R$ 157 da mensalidade ficam 100% zerados. A isenção costuma exigir faturamento mínimo de R$ 30 mil — no Feirão <span class="strong">não há valor mínimo</span>.</p>
+        </div>
+
+        <h3 class="h3 mt-6 mb-4">O que você leva no combo</h3>
+        <div class="grid grid--2">
+          <div class="card card--hover">
+            <h4 class="h4">Planejamento</h4>
+            <p class="sm mt-3">Estruturado passo a passo para o Feirão.</p>
+          </div>
+          <div class="card card--hover">
+            <h4 class="h4">Pacote de ferramentas de I.A.</h4>
+            <p class="sm mt-3">Leadway no tráfego pago e Gideão no seu WhatsApp, analisando anúncio, trazendo estratégia e avaliando leads.</p>
+          </div>
+          <div class="card card--hover mock">
+            <h4 class="h4">Kit Feirão oficial</h4>
+            <p class="sm mt-3">Camiseta e boné exclusivos.</p>
+          </div>
+          <div class="card card--hover mock">
+            <h4 class="h4">Maquininha G30 Pay</h4>
+            <p class="sm mt-3">Parcele a entrada do seu cliente em até 24x.</p>
+          </div>
+        </div>
+
+        <p class="lead center mt-6">O Santander financia, a G30 Pay parcela a entrada<br>e <span class="strong">você vende como nunca</span>.</p>
+
+        <div class="row row--center mt-5">
+          <a id="ctaInscricao" href="#" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Garantir a minha vaga</a>
+        </div>
+        <p class="xs center mt-3">Abre o formulário de inscrição numa nova aba.</p>
+      </div>
+    </section>
+
+    <!-- Gideão -->
+    <section class="section wrap">
+      <div class="section__head">
+        <p class="eyebrow eyebrow--brand">Copiloto</p>
+        <h2 class="h1">Converse com o Gideão</h2>
+        <p class="lead">Ele ajuda a pensar melhor, comprar melhor e gerir melhor a loja. Toque num comando para copiar.</p>
+      </div>
+      <div class="grid grid--2" id="gideao"></div>
+    </section>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- ABA 2 — CRIATIVOS                                                -->
+  <!-- ================================================================ -->
+  <div id="tab-criativos" class="tab">
+
+    <section class="hero wrap">
+      <p class="eyebrow eyebrow--brand mb-4">Plano de ataque</p>
+      <h1 class="display hero__title">Plano de <span class="accent">criativos</span></h1>
+      <p class="lead hero__lead">Seis criativos, lógica de campanha e execução. A estratégia para atrair, envolver e vender.</p>
+      <div class="row row--center mt-6">
+        <a href="assets/plano-criativos-mega-feirao-g30.pdf" target="_blank" rel="noopener" class="btn btn--ghost">Baixar o PDF completo</a>
+      </div>
+      <div class="hero__stack"><span>Desenvolvido por Thairone Dantas</span></div>
+    </section>
+
+    <!-- missão -->
+    <section class="section wrap wrap--mid">
+      <div class="card card--pad">
+        <p class="eyebrow eyebrow--brand mb-4">A missão</p>
+        <h2 class="h1">Não é só divulgar o feirão.<br>É fazer a pessoa <span class="accent">querer ir</span>.</h2>
+        <p class="lead mt-5">O criativo precisa interromper o scroll, criar curiosidade, mostrar uma oportunidade real e levar a pessoa para o próximo passo: visitar o feirão e comprar.</p>
+
+        <div class="grid grid--4 mt-6">
+          <div class="card card--hover">
+            <p class="eyebrow eyebrow--brand">01</p>
+            <h4 class="h4 mt-3">Atenção</h4>
+            <p class="sm mt-3">Ganhar os primeiros 2 segundos.</p>
+          </div>
+          <div class="card card--hover">
+            <p class="eyebrow eyebrow--brand">02</p>
+            <h4 class="h4 mt-3">Interesse</h4>
+            <p class="sm mt-3">Fazer a pessoa pensar: “e se eu encontrar meu veículo lá?”</p>
+          </div>
+          <div class="card card--hover">
+            <p class="eyebrow eyebrow--brand">03</p>
+            <h4 class="h4 mt-3">Desejo</h4>
+            <p class="sm mt-3">Mostrar veículo, condição, preço e experiência.</p>
+          </div>
+          <div class="card card--hover">
+            <p class="eyebrow eyebrow--brand">04</p>
+            <h4 class="h4 mt-3">Ação</h4>
+            <p class="sm mt-3">Data, local e CTA simples.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- os seis -->
+    <section class="section wrap">
+      <div class="section__head">
+        <p class="eyebrow eyebrow--brand">A biblioteca</p>
+        <h2 class="h1">Os seis criativos</h2>
+        <p class="lead">Cada um traz o roteiro segundo a segundo e a execução real de duas lojas — uma de motos, uma de carros. Mesmo roteiro, dois segmentos.</p>
+      </div>
+      <div class="stack stack--lg" id="listaCriativos"></div>
+    </section>
+
+    <!-- regra de ouro -->
+    <section class="section wrap wrap--narrow">
+      <div class="panel center">
+        <p class="eyebrow eyebrow--brand mb-4">Regra de ouro</p>
+        <p class="h1">Não venda o feirão.<br><span class="accent">Venda o motivo para a pessoa ir.</span></p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- ABA 3 — CALENDÁRIO                                               -->
+  <!-- ================================================================ -->
+  <div id="tab-calendario" class="tab">
+    <section class="hero wrap">
+      <p class="eyebrow eyebrow--brand mb-4">Cronograma</p>
+      <h1 class="display hero__title">O mapa do <span class="accent">tempo</span></h1>
+      <p class="lead hero__lead">A ordem exata para preparar, gerir e vender. Siga o fluxo para garantir o resultado da sua loja.</p>
+    </section>
+
+    <section class="section wrap wrap--mid">
+      <div class="stack stack--sm" id="cronograma"></div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section__head">
+        <p class="eyebrow eyebrow--brand">Os três dias</p>
+        <h2 class="h1">O Mega Feirão</h2>
+      </div>
+      <div class="grid grid--3" id="dias"></div>
+    </section>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- ABA 4 — TRÁFEGO                                                  -->
+  <!-- ================================================================ -->
+  <div id="tab-trafego" class="tab">
+    <section class="hero wrap">
+      <p class="eyebrow eyebrow--brand mb-4">Motor de vendas</p>
+      <h1 class="display hero__title">Tráfego por <span class="accent">fase</span></h1>
+      <p class="lead hero__lead">Planejamento de campanha e funis de alta conversão, do aquecimento ao fechamento.</p>
+    </section>
+
+    <section class="section wrap">
+      <div class="card card--pad mock-box">
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr><th>Período</th><th>Fase</th><th>Conteúdo / ação</th><th>Detalhes e estratégia</th></tr>
+            </thead>
+            <tbody id="fases"></tbody>
+          </table>
+        </div>
+        <p class="xs center mt-5">As datas seguem o calendário do evento. Ajuste o orçamento diário conforme o CPL medido no Meta Ads.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- ABA 5 — EXECUÇÃO                                                 -->
+  <!-- ================================================================ -->
+  <div id="tab-execucao" class="tab">
+    <section class="hero wrap">
+      <p class="eyebrow eyebrow--brand mb-4">Como a equipe grava</p>
+      <h1 class="display hero__title">Execução <span class="accent">prática</span></h1>
+      <p class="lead hero__lead">Seis pontos que separam um criativo que para o scroll de um que passa batido.</p>
+    </section>
+
+    <section class="section wrap">
+      <div class="grid grid--3">
+        <div class="card card--hover">
+          <p class="eyebrow eyebrow--brand">01</p>
+          <h4 class="h4 mt-3">Gravação</h4>
+          <p class="sm mt-3">Cada veículo precisa render vários planos: frente, traseira, roda, farol, interior, painel, multimídia, banco e chave.</p>
+        </div>
+        <div class="card card--hover">
+          <p class="eyebrow eyebrow--brand">02</p>
+          <h4 class="h4 mt-3">Pessoas</h4>
+          <p class="sm mt-3">Vendedor ou apresentador olhando para a câmera. Fala curta, energia alta e expressão natural.</p>
+        </div>
+        <div class="card card--hover">
+          <p class="eyebrow eyebrow--brand">03</p>
+          <h4 class="h4 mt-3">Ritmo</h4>
+          <p class="sm mt-3">Primeiros 3 segundos com movimento. Nada de começar com logo parado ou apresentação longa.</p>
+        </div>
+        <div class="card card--hover">
+          <p class="eyebrow eyebrow--brand">04</p>
+          <h4 class="h4 mt-3">Oferta</h4>
+          <p class="sm mt-3">Sempre que possível, colocar preço, parcela, entrada, bônus ou condição real. O público precisa enxergar a oportunidade.</p>
+        </div>
+        <div class="card card--hover">
+          <p class="eyebrow eyebrow--brand">05</p>
+          <h4 class="h4 mt-3">Prova</h4>
+          <p class="sm mt-3">Mostrar estoque de verdade, clientes chegando, veículos sendo entregues e equipe trabalhando. O feirão precisa parecer vivo.</p>
+        </div>
+        <div class="card card--hover">
+          <p class="eyebrow eyebrow--brand">06</p>
+          <h4 class="h4 mt-3">CTA</h4>
+          <p class="sm mt-3">Um único próximo passo: chamar no WhatsApp, clicar no anúncio, salvar a data ou ir ao feirão.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="grid grid--2">
+        <div class="card card--pad">
+          <h3 class="h2 mb-5">Roteiro estruturado</h3>
+          <div class="stack stack--sm">
+            <div><p class="eyebrow eyebrow--brand">0–3s · Gancho forte</p><p class="sm mt-3">Impacto visual ou pergunta que prende a atenção.</p></div>
+            <div><p class="eyebrow eyebrow--brand">3–8s · Desenvolvimento</p><p class="sm mt-3">Mostrar veículos, diferenciais e benefícios.</p></div>
+            <div><p class="eyebrow eyebrow--brand">8–12s · Desejo</p><p class="sm mt-3">Condições especiais, oportunidades e vantagens.</p></div>
+            <div><p class="eyebrow eyebrow--brand">12–15s · Chamada para ação</p><p class="sm mt-3">Convite direto e claro para o feirão.</p></div>
+          </div>
+        </div>
+
+        <div class="card card--pad">
+          <h3 class="h2 mb-5">Orientações de gravação</h3>
+          <div class="grid grid--2">
+            <div><h4 class="h4">Imagens reais</h4><p class="sm mt-3">Mostrar o veículo no ambiente da loja ou no uso real.</p></div>
+            <div><h4 class="h4">Cortes rápidos</h4><p class="sm mt-3">Ritmo dinâmico nos primeiros segundos para segurar a atenção.</p></div>
+            <div><h4 class="h4">Formato vertical</h4><p class="sm mt-3">Priorizar vídeos em 9:16 para redes sociais.</p></div>
+            <div><h4 class="h4">Áudio envolvente</h4><p class="sm mt-3">Música que transmite energia e emoção no momento.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap wrap--narrow">
+      <div class="card card--pad">
+        <h3 class="h2 mb-5">Regras para aumentar a retenção</h3>
+        <div class="stack stack--sm" id="retencao"></div>
+      </div>
+    </section>
+
+    <section class="section wrap wrap--narrow">
+      <div class="section__head">
+        <h2 class="h2">O plano em uma página</h2>
+        <p class="lead">Clique para abrir em tamanho real.</p>
+      </div>
+      <a href="assets/infografico-plano-criativos.jpg" target="_blank" rel="noopener" class="card card--flush card--hover">
+        <img src="assets/infografico-plano-criativos.jpg" alt="Plano de criativos do Mega Feirão G30 em infográfico" loading="lazy">
+      </a>
+    </section>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- ABA 6 — PRÉ-VENDAS                                               -->
+  <!-- ================================================================ -->
+  <div id="tab-presales" class="tab">
+    <section class="hero wrap">
+      <p class="eyebrow eyebrow--brand mb-4">Integrado com CarVoice</p>
+      <h1 class="display hero__title">Qualificação com <span class="accent">IA</span></h1>
+      <p class="lead hero__lead">O discador ouve a ligação, transcreve e extrai os pilares do Método MAPA automaticamente para o seu CRM.</p>
+    </section>
+
+    <section class="section wrap">
+      <div class="section__head">
+        <h2 class="h2">Os 4 pilares que a IA extrai da ligação</h2>
+      </div>
+      <div class="grid grid--4">
+        <div class="card pillar"><p class="pillar__k">M</p><p class="pillar__n">Montante</p><p class="xs mt-3">Orçamento do cliente</p></div>
+        <div class="card pillar"><p class="pillar__k">A</p><p class="pillar__n">Autoridade</p><p class="xs mt-3">Decisor e a palavra final</p></div>
+        <div class="card pillar"><p class="pillar__k">P</p><p class="pillar__n">Problema</p><p class="xs mt-3">Necessidade real</p></div>
+        <div class="card pillar"><p class="pillar__k">A</p><p class="pillar__n">Agenda</p><p class="xs mt-3">Prazo para decisão</p></div>
+      </div>
+    </section>
+
+    <section class="section wrap wrap--mid">
+      <div class="section__head">
+        <p class="eyebrow eyebrow--brand">Na hora da recusa</p>
+        <h2 class="h1">Matador de objeções</h2>
+        <p class="lead">Respostas de alta conversão prontas para reverter a recusa no momento.</p>
+      </div>
+      <div class="stack stack--sm" id="objecoes"></div>
+    </section>
+
+    <section class="section wrap wrap--mid">
+      <div class="section__head">
+        <p class="eyebrow eyebrow--brand">Processo oficial</p>
+        <h2 class="h1">MAPA do acompanhamento</h2>
+        <p class="lead">Os pontos de contacto, na ordem. Identifique os leads quentes nestas 4 etapas.</p>
+      </div>
+      <div class="stack stack--sm">
+        <div class="card step"><span class="step__n">1</span><div><h4 class="h4">3 ligações tradicionais</h4><p class="sm mt-3">Ligações seguidas até cair na caixa postal, uma atrás da outra, para ativar o gatilho de urgência e fazer o cliente atender.</p></div></div>
+        <div class="card step"><span class="step__n">2</span><div><h4 class="h4">1 chamada de vídeo</h4><p class="sm mt-3">Faça uma videochamada para ativar o gatilho de quebra de padrão no cliente.</p></div></div>
+        <div class="card step"><span class="step__n">3</span><div><h4 class="h4">1 mensagem de vídeo</h4><p class="sm mt-3">Envie um vídeo estilo “bolinha” com uma das 10 mensagens MAPA abaixo.</p></div></div>
+        <div class="card step"><span class="step__n">4</span><div><h4 class="h4">O áudio mudo, após 3 horas</h4><p class="sm mt-3">Grave 1 áudio mudo de 10 s se ele não responder aos contactos. Em seguida, envie: <span class="strong">“(nome do cliente) você acha que faz sentido para você?”</span></p></div></div>
+      </div>
+      <div class="card card--brand center mt-5">
+        <p class="sm"><span class="strong">Depois desses 4 pontos de contacto, você desiste do lead naquele dia.</span></p>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section__head">
+        <h2 class="h1">10 mensagens de acompanhamento</h2>
+        <p class="lead">Use nos vídeos estilo “bolinha” ou no seu discador CarVoice.</p>
+      </div>
+      <div class="grid grid--2" id="mensagens"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__bar">
+    <div class="footer__brand">
+      <img src="assets/g30-logo.png" alt="G30">
+      <p class="eyebrow">Inteligência automotiva</p>
+    </div>
+    <a id="ctaSuporte" href="#" target="_blank" rel="noopener" class="btn btn--ghost mock-inline">Suporte G30</a>
+  </div>
+</footer>
+
+<script src="assets/dados.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
